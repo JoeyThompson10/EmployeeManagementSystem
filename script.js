@@ -16,7 +16,7 @@ async function createUserButtonClicked() {
     
     fetch(url, options)
     .then(response => response.json())
-    .then(data => alert(data))
+    .then(data => alert(JSON.stringify(data)))
     .catch(err => console.error(err));
 };
 
