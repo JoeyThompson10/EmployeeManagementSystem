@@ -76,3 +76,13 @@ async function EmployeeLoginButtonClicked() {
     })
     .catch(err => console.error(err));
 };
+
+function toggleNewUserForm() {
+    const newUserForm = document.getElementById('newUserForm');
+    newUserForm.style.display = (newUserForm.style.display === "block") ? "none" : "block";
+};
+
+function forgotPassword() {
+    // TODO: Check security questions and send reset password link to user email
+    window.alert("Password reset link sent!");
+};
