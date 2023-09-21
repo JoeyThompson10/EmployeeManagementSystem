@@ -1,4 +1,3 @@
-/* Reset some default browser styles */
 body, h1, form {
     margin: 0;
     padding: 0;
@@ -63,7 +62,6 @@ hr {
     border-top: 1px solid #ddd;
 }
 
-/* Hide the new user form by default */
 #newUserForm {
     display: none;
 }
