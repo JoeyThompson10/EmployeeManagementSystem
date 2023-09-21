@@ -28,6 +28,27 @@ document.addEventListener("DOMContentLoaded", function() {
             window.location.href = "index.html";
         });
     }
+
+    const attendanceTrackerButton = document.getElementById('attendanceTrackerButton');
+    if (attendanceTrackerButton) {
+        attendanceTrackerButton.addEventListener('click', function() {
+            window.location.href = "attendanceTracker.html";
+        });
+    }
+
+    const employeePortalButton = document.getElementById('payrollManagementButton');
+    if (employeePortalButton) {
+        employeePortalButton.addEventListener('click', function() {
+            window.location.href = "payrollManagement.html";
+        });
+    }
+
+    const employeeDirectoryButton = document.getElementById('employeeDirectoryButton');
+    if (employeeDirectoryButton) {
+        employeeDirectoryButton.addEventListener('click', function() {
+            window.location.href = "employeeDirectory.html";
+        });
+    }
 });
 
 async function EmployeeCreateUserButtonClicked() {
