@@ -49,6 +49,13 @@ document.addEventListener("DOMContentLoaded", function() {
             window.location.href = "employeeDirectory.html";
         });
     }
+
+    const feedbackSuggestionsButton = document.getElementById('feedbackSuggestionsButton');
+    if (feedbackSuggestionsButton) {
+        feedbackSuggestionsButton.addEventListener('click', function() {
+            window.location.href = "feedbackSuggestions.html";
+        });
+    }
 });
 
 async function EmployeeCreateUserButtonClicked() {

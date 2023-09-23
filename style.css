@@ -127,7 +127,6 @@ body {
     flex-wrap: wrap;
     justify-content: space-between;
     margin: 20px 0;
-    
 }
 
 .menu-item {
@@ -151,4 +150,12 @@ body {
 
 .menu-item:hover {
     background-color: #555;
+}
+
+
+.suggestionForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
 }

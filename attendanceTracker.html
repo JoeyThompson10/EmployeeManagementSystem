@@ -3,46 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
     <title>Attendance Tracking</title>
-    <style>
-    </style>
 </head>
 <body>
     <h1>Attendance Tracking</h1>
-    
-    <form id="attendanceForm">
-        <label for="employeeName">Employee Name:</label>
-        <input type="text" id="employeeName" required><br><br>
-
-        <label for="attendanceStatus">Attendance Status:</label>
-        <select id="attendanceStatus" required>
-            <option value="Present">Present</option>
-            <option value="Absent">Absent</option>
-        </select><br><br>
-
-        <button type="submit">Record Attendance</button>
-    </form>
-
-    <div id="resultMessage">
-        <!-- Attendance recording results will be displayed here -->
-    </div>
-
-    <script>
-        document.getElementById("attendanceForm").addEventListener("submit", function (event) {
-            event.preventDefault();
-
-            // Retrieve form values
-            const employeeName = document.getElementById("employeeName").value;
-            const attendanceStatus = document.getElementById("attendanceStatus").value;
-
-            // Perform attendance recording (in reality, you'd do this on the server)
-            // For this example, we'll just display a message
-            const resultMessage = `
-                Attendance recorded for ${employeeName} (${attendanceStatus}).
-            `;
-
-            document.getElementById("resultMessage").textContent = resultMessage;
-        });
-    </script>
 </body>
 </html>
