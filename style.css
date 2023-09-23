@@ -115,3 +115,6 @@ body {
     margin-top: 50px;
     text-align: center;
   }
+  a, a:visited {
+    color: inherit;
+}
