@@ -5,23 +5,13 @@ function app(){
 }
 
 function credentials(){
-    const apiKey = getApiKey();
-    return RealmWeb.Credentials.apiKey(apiKey);
-}
-
-function getApiKey(){
-    console.log("GETTING API KEY: ");
-
     const apiKey = import.meta.env.VITE_REALM_API_KEY;
 
-    console.log("API KEY: " + apiKey);
-
-    if (apiKey) {
-        return apiKey;
-    } else {
+    if (!apiKey) {
         window.alert("No API key. Set REALM_API_KEY as an env variable.");
         console.log("No API key. Set REALM_API_KEY as an env variable.");
     }
+    return RealmWeb.Credentials.apiKey(apiKey);
 }
 
 async function AddEmployee(email, password){
