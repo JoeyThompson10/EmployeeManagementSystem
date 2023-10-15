@@ -32,12 +32,7 @@ function LoginPage() {
         const email = document.getElementById('username').value;
         const password = document.getElementById('password').value;
         
-        console.log("TEST1");
-
         const data = await EmployeeLogin(email, password);
-
-        console.log("TEST2");
-
 
         if (data.loggedIn) {
             alert(JSON.stringify(data));
