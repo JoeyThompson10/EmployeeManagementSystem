@@ -6,7 +6,7 @@ function app(){
 
 function credentials(){
     const apiKey =
-      "EX08de60FItB9TdwhZkAf4k1Q5YqfXVFYsiValRYiHKiSYf2rilVcMbBdllDmpqY";
+      "";
     return RealmWeb.Credentials.apiKey(apiKey);
 }
 

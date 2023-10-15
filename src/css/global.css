@@ -1,0 +1,51 @@
+:root {
+  --background-color: #f0f0f0;
+  --header-footer-background-color: #a09393;
+  --header-footer-text-color: white;
+  --body-text-color: #333;
+  --header-color: #444;
+  --link-color: #0066cc;
+  --link-hover-color: #004499;
+}
+
+.App {
+  background-color: var(--background-color);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: var(--body-text-color);
+}
+
+.navigation button {
+  background: none;
+  border: none;
+  color: var(--header-footer-text-color);
+  margin: 0 10px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: color 0.3s ease-in-out;
+}
+
+.navigation button:hover {
+  color: var(--link-hover-color);
+}
+
+.home-page,
+.about-page,
+.contact-page,
+.terms-page {
+  flex: 1;
+  padding: 20px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--header-color);
+}
+
+a {
+  color: var(--link-color);
+}
+
+a:hover {
+  color: var(--link-hover-color);
+}

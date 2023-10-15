@@ -1,0 +1,19 @@
+.header,
+.footer {
+  background-color: var(--header-footer-background-color);
+  color: var(--header-footer-text-color);
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header .brand {
+  font-size: 24px;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+}
+
+.header .brand:hover {
+  color: var(--link-hover-color);
+}
