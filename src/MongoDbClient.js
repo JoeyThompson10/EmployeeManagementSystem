@@ -7,6 +7,8 @@ function app(){
 function credentials(){
     const apiKey = import.meta.env.VITE_REALM_API_KEY;
 
+    console.log("APIKEY: " + apiKey);
+
     if (!apiKey) {
         window.alert("No API key. Set REALM_API_KEY as an env variable.");
         console.log("No API key. Set REALM_API_KEY as an env variable.");
