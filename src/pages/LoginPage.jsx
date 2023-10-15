@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import { EmployeeLogin } from "../MongoDbClient";
+
 function LoginPage() {
-    const apiKey = 'iOl4vy5hFzAvu9RGuStafQ39vqliO7qXAWsehKIh42IngWS8FZ57nvOjb71jpoJP';
-
-
     const navigate = useNavigate();
 
     const [username, setUsername] = useState('');
@@ -32,29 +31,20 @@ function LoginPage() {
     async function EmployeeLoginButtonClickedEndpointCall() {
         const email = document.getElementById('username').value;
         const password = document.getElementById('password').value;
-        const params = new URLSearchParams({ email: email, password: password });
+        
+        console.log("TEST1");
 
-        const url = 'https://us-east-1.aws.data.mongodb-api.com/app/application-0-qvqcw/endpoint/EmployeeLogIn?' + params.toString();
-        const options = {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': 'bearer ' + apiKey,
-            }
-        };
+        const data = await EmployeeLogin(email, password);
 
-        fetch(url, options)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-                if (data.loggedIn) {
-                    alert(JSON.stringify(data));
-                    navigate("/employeePortal");
-                } else {
-                    alert(JSON.stringify(data));
-                }
-            })
-            .catch(err => console.error(err));
+        console.log("TEST2");
+
+
+        if (data.loggedIn) {
+            alert(JSON.stringify(data));
+            navigate("/employeePortal");
+        } else {
+            alert(JSON.stringify(data));
+        }
     };
 
     function forgotPasswordEndpointCall() {
