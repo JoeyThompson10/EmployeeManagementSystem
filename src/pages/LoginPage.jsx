@@ -36,7 +36,7 @@ function LoginPage() {
 
         if (data.loggedIn) {
             alert(JSON.stringify(data));
-            navigate("/employeePortal");
+            navigate("/dashboard");
         } else {
             alert(JSON.stringify(data));
         }
