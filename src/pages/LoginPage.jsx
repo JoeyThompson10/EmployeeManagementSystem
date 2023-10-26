@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { EmployeeLogin } from "../MongoDbClient";
@@ -8,6 +8,14 @@ function LoginPage() {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+
+    // Check if user is already logged in
+    useEffect(() => {
+        const loggedInUser = localStorage.getItem('username');
+        if (loggedInUser) {
+            navigate("/dashboard"); // Or wherever you want to redirect
+        }
+    }, [navigate]);
 
     const handleUsernameChange = (e) => {
         setUsername(e.target.value);
@@ -31,7 +39,7 @@ function LoginPage() {
     async function EmployeeLoginButtonClickedEndpointCall() {
         const email = document.getElementById('username').value;
         const password = document.getElementById('password').value;
-        
+
         const data = await EmployeeLogin(email, password);
 
         if (data.loggedIn) {
