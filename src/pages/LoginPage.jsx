@@ -35,7 +35,8 @@ function LoginPage() {
         const data = await EmployeeLogin(email, password);
 
         if (data.loggedIn) {
-            alert(JSON.stringify(data));
+            alert("Logged in successfully as " + email + "!");
+            writeToLocalStorage(data._id, data.isManager);
             navigate("/dashboard");
         } else {
             alert(JSON.stringify(data));
@@ -45,6 +46,11 @@ function LoginPage() {
     function forgotPasswordEndpointCall() {
         // TODO: Check security questions and send reset password link to user email
         window.alert("Password reset link sent!");
+    };
+
+    function writeToLocalStorage(_id, isManager) {
+        localStorage.setItem('username', _id);
+        localStorage.setItem('isManager', isManager);
     };
 
     return (

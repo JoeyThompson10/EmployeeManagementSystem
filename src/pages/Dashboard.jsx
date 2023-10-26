@@ -19,6 +19,7 @@ import ViewSchedules from '../components/ViewSchedules';
 
 
 function Dashboard() {
+  const isManager = localStorage.getItem('isManager');
 
   return (
     <div className="dashboard">
@@ -31,19 +32,19 @@ function Dashboard() {
           <Tab>Request Time Off</Tab>
           <Tab>View Schedules</Tab>
           <Tab>Feedback</Tab>
-          
+
           {/* Employee Stuff */}
           <Tab>Attendance Tracking</Tab>
           <Tab>Task Management</Tab>
           <Tab>Expense Claims</Tab>
-          
+
           {/* Manager Stuff */}
-          <Tab>Schedule Management</Tab>
-          <Tab>Payroll Management</Tab>
-          <Tab>Empoyee Performance Monitoring</Tab>
-          <Tab>Leave Management</Tab>
-          <Tab>Hiring and Onboarding</Tab>
-          <Tab>Employee Management</Tab>
+          {isManager==='true' && <Tab>Schedule Management</Tab>}
+          {isManager==='true' && <Tab>Payroll Management</Tab>}
+          {isManager==='true' && <Tab>Empoyee Performance Monitoring</Tab>}
+          {isManager==='true' && <Tab>Leave Management</Tab>}
+          {isManager==='true' && <Tab>Hiring and Onboarding</Tab>}
+          {isManager==='true' && <Tab>Employee Management</Tab>}
         </TabList>
 
         <TabPanel>
@@ -64,6 +65,7 @@ function Dashboard() {
         <TabPanel>
           <FeedbackForm />
         </TabPanel>
+
         <TabPanel>
           <AttendanceTracking />
         </TabPanel>
@@ -73,24 +75,25 @@ function Dashboard() {
         <TabPanel>
           <ExpenseClaims />
         </TabPanel>
-        <TabPanel>
+
+        {isManager==='true' && <TabPanel>
           <ScheduleManagement />
-        </TabPanel>
-        <TabPanel>
+        </TabPanel>}
+        {isManager==='true' && <TabPanel>
           <PayrollManagement />
-        </TabPanel>
-        <TabPanel>
+        </TabPanel>}
+        {isManager==='true' && <TabPanel>
           <EmployeePerformance />
-        </TabPanel>
-        <TabPanel>
+        </TabPanel>}
+        {isManager==='true' && <TabPanel>
           <LeaveManagement />
-        </TabPanel>
-        <TabPanel>
+        </TabPanel>}
+        {isManager==='true' && <TabPanel>
           <HiringOnboarding />
-        </TabPanel>
-        <TabPanel>
+        </TabPanel>}
+        {isManager==='true' && <TabPanel>
           <EmployeeManagement />
-        </TabPanel>
+        </TabPanel>}
 
       </Tabs>
     </div>
