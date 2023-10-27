@@ -4,14 +4,6 @@ import { useNavigate } from 'react-router-dom';
 function HomePage() {
   const navigate = useNavigate();
 
-  // Check if user is already logged in
-  useEffect(() => {
-    const loggedInUser = localStorage.getItem('username');
-    if (loggedInUser) {
-        navigate("/dashboard"); // Or wherever you want to redirect
-    }
-}, [navigate]);
-
   return (
     <div className="home-page">
       <h1>Home Page</h1>

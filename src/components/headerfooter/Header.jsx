@@ -31,15 +31,15 @@ function Header() {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
-        <span className="navbar-brand mb-0 h1 cursor-pointer" onClick={() => navigate("/")} title="Go to Home">
+        <span className="navbar-brand mb-0 h1 cursor-pointer" onClick={() => navigate("/")} title="Go to Home Page">
           EmployeeManagementSystem
         </span>
         
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <span className="nav-link cursor-pointer" onClick={() => navigate("/employeePortal")} title="View Employee Portal">
-                Employee Portal
+              <span className="nav-link cursor-pointer" onClick={() => navigate("/dashboard")} title="Go to Dashboard">
+                Dashboard
               </span>
             </li>
             <li className="nav-item">
