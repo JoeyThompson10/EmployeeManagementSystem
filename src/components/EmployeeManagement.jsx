@@ -13,9 +13,9 @@ const EmployeeManagement = () => {
     }, []);
 
     return (
-        <div>
+        <div className="container mt-4">
             <h2>Employee Management</h2>
-            <table>
+            <table className="table table-striped">
                 <thead>
                     <tr>
                         <th>Username</th>

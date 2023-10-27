@@ -49,3 +49,18 @@ a {
 a:hover {
   color: var(--link-hover-color);
 }
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+#root, .App {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.App-content {
+  flex: 1;
+}

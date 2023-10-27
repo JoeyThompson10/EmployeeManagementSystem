@@ -8,18 +8,13 @@ function Header() {
 
   useEffect(() => {
     const handleStorageChange = () => {
-      // Fetch the new username from local storage
       const storedUsername = localStorage.getItem("username");
-      setUsername(storedUsername || ''); // Update or clear username
+      setUsername(storedUsername || '');
     };
   
-    // Add event listener
     window.addEventListener('storageChange', handleStorageChange);
-  
-    // Call the function initially to set the correct username
     handleStorageChange();
   
-    // Cleanup function to remove the event listener
     return () => {
       window.removeEventListener('storageChange', handleStorageChange);
     };
@@ -30,26 +25,42 @@ function Header() {
     localStorage.removeItem('isManager');
     window.alert('Logged out successfully!');
     navigate('/login');
-    window.dispatchEvent(new Event('storageChange')); // Dispatch event after storage change
-}
-
+    window.dispatchEvent(new Event('storageChange'));
+  }
 
   return (
-    <header className="header">
-      <div className="brand" onClick={() => navigate("/")}>
-        EmployeeManagementSystem
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div className="container-fluid">
+        <span className="navbar-brand mb-0 h1 cursor-pointer" onClick={() => navigate("/")} title="Go to Home">
+          EmployeeManagementSystem
+        </span>
+        
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            <li className="nav-item">
+              <span className="nav-link cursor-pointer" onClick={() => navigate("/employeePortal")} title="View Employee Portal">
+                Employee Portal
+              </span>
+            </li>
+            <li className="nav-item">
+              <span className="nav-link cursor-pointer" onClick={() => navigate("/about")} title="Learn About Us">
+                About
+              </span>
+            </li>
+          </ul>
+          {username && (
+            <div className="d-flex">
+              <span className="navbar-text text-white mx-2">
+                Hello, {username}
+              </span>
+              <button className="btn btn-outline-danger" onClick={() => logout()} title="Sign out of your account">
+                Logout
+              </button>
+            </div>
+          )}
+        </div>
       </div>
-      <nav className="navigation">
-        <button onClick={() => navigate("/employeePortal")}>Employee Portal</button>
-        <button onClick={() => navigate("/about")}>About</button>
-        {username && (
-          <>
-            <span className="username-display">Hello, {username}</span>
-            <button onClick={() => logout()}>Logout</button>
-          </>
-        )}
-      </nav>
-    </header>
+    </nav>
   );
 }
 

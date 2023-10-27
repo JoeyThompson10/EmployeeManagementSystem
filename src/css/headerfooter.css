@@ -17,3 +17,7 @@
 .header .brand:hover {
   color: var(--link-hover-color);
 }
+
+.cursor-pointer {
+  cursor: pointer;
+}
