@@ -37,14 +37,14 @@ function LoginPage() {
     };
 
     async function EmployeeLoginButtonClickedEndpointCall() {
-        const email = document.getElementById('username').value;
+        const username = document.getElementById('username').value;
         const password = document.getElementById('password').value;
 
-        const data = await EmployeeLogin(email, password);
+        const data = await EmployeeLogin(username, password);
 
         if (data.loggedIn) {
-            alert("Logged in successfully as " + email + "!");
-            writeToLocalStorage(data._id, data.isManager);
+            alert("Logged in successfully as " + username + "!");
+            writeToLocalStorage(username, data.isManager);
             navigate("/dashboard");
         } else {
             alert(JSON.stringify(data));
@@ -59,7 +59,16 @@ function LoginPage() {
     function writeToLocalStorage(_id, isManager) {
         localStorage.setItem('username', _id);
         localStorage.setItem('isManager', isManager);
-    };
+        window.dispatchEvent(new Event('storageChange')); // Dispatch event after storage change
+      };
+      
+      function logout() {
+        localStorage.removeItem('username');
+        localStorage.removeItem('isManager');
+        window.alert('Logged out successfully!');
+        navigate('/login');
+        window.dispatchEvent(new Event('storageChange')); // Dispatch event after storage change
+      }      
 
     return (
         <form onSubmit={EmployeeLoginButtonClicked}>
