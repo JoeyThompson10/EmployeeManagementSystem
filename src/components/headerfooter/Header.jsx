@@ -11,15 +11,15 @@ function Header() {
       const storedUsername = localStorage.getItem("username");
       setUsername(storedUsername || '');
     };
-  
+
     window.addEventListener('storageChange', handleStorageChange);
     handleStorageChange();
-  
+
     return () => {
       window.removeEventListener('storageChange', handleStorageChange);
     };
   }, []);
-  
+
   function logout() {
     localStorage.removeItem('username');
     localStorage.removeItem('isManager');
@@ -34,14 +34,16 @@ function Header() {
         <span className="navbar-brand mb-0 h1 cursor-pointer" onClick={() => navigate("/")} title="Go to Home Page">
           EmployeeManagementSystem
         </span>
-        
+
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-              <span className="nav-link cursor-pointer" onClick={() => navigate("/dashboard")} title="Go to Dashboard">
-                Dashboard
-              </span>
-            </li>
+            {username && (
+              <li className="nav-item">
+                <span className="nav-link cursor-pointer" onClick={() => navigate("/dashboard")} title="Go to Dashboard">
+                  Dashboard
+                </span>
+              </li>
+            )}
             <li className="nav-item">
               <span className="nav-link cursor-pointer" onClick={() => navigate("/about")} title="Learn About Us">
                 About
