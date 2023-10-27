@@ -24,4 +24,9 @@ async function EmployeeLogin(email, password){
     return await user.functions.EmployeeLogIn(email, password);
 }
 
-export { AddEmployee, EmployeeLogin };
+async function DisplayEmployees(){
+    const user = await app().logIn(credentials());
+    return await user.functions.DisplayEmployees();
+}
+
+export { AddEmployee, EmployeeLogin, DisplayEmployees };
