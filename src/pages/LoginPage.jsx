@@ -60,24 +60,24 @@ function LoginPage() {
         localStorage.setItem('username', _id);
         localStorage.setItem('isManager', isManager);
         window.dispatchEvent(new Event('storageChange')); // Dispatch event after storage change
-      };
-      
-      function logout() {
+    };
+
+    function logout() {
         localStorage.removeItem('username');
         localStorage.removeItem('isManager');
         window.alert('Logged out successfully!');
         navigate('/login');
         window.dispatchEvent(new Event('storageChange')); // Dispatch event after storage change
-      }      
+    }
 
-      return (
+    return (
         <div className="container mt-5">
             <div className="row">
                 <div className="col-md-6 offset-md-3">
                     <div className="card">
                         <div className="card-body">
                             <h2 className="text-center mb-4">Employee Login</h2>
-                            
+
                             <form onSubmit={EmployeeLoginButtonClicked}>
                                 <div className="mb-3">
                                     <label htmlFor="username" className="form-label">Username</label>
@@ -92,26 +92,24 @@ function LoginPage() {
                                     <button type="button" className="btn btn-link" onClick={forgotPassword}>Forgot Password?</button>
                                 </div>
                             </form>
-                            <h3>
-                                Employee credentials for testing:
-                            </h3>
-                            <p>
-                                Username: employee
-                            </p>
-                            <p>
-                                Password: employee
-                            </p>
-                            <hr />
-                            <h3>
-                                Manager credentials for testing:
-                            </h3>
-                            <p>
-                                Username: manager
-                            </p>
-                            <p>
-                                Password: manager
-                            </p>
-                            
+                            {/* Test Credentials Section */}
+                            <div className="card mt-4">
+                                <div className="card-header">
+                                    Test Credentials
+                                </div>
+                                <ul className="list-group list-group-flush">
+                                    <li className="list-group-item">
+                                        <strong>Employee:</strong><br />
+                                        Username: employee<br />
+                                        Password: employee
+                                    </li>
+                                    <li className="list-group-item">
+                                        <strong>Manager:</strong><br />
+                                        Username: manager<br />
+                                        Password: manager
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
