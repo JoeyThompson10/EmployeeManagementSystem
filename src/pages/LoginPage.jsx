@@ -77,6 +77,7 @@ function LoginPage() {
                     <div className="card">
                         <div className="card-body">
                             <h2 className="text-center mb-4">Employee Login</h2>
+                            
                             <form onSubmit={EmployeeLoginButtonClicked}>
                                 <div className="mb-3">
                                     <label htmlFor="username" className="form-label">Username</label>
@@ -91,6 +92,26 @@ function LoginPage() {
                                     <button type="button" className="btn btn-link" onClick={forgotPassword}>Forgot Password?</button>
                                 </div>
                             </form>
+                            <h3>
+                                Employee credentials for testing:
+                            </h3>
+                            <p>
+                                Username: employee
+                            </p>
+                            <p>
+                                Password: employee
+                            </p>
+                            <hr />
+                            <h3>
+                                Manager credentials for testing:
+                            </h3>
+                            <p>
+                                Username: manager
+                            </p>
+                            <p>
+                                Password: manager
+                            </p>
+                            
                         </div>
                     </div>
                 </div>
