@@ -48,7 +48,14 @@ function Dashboard() {
         </TabList>
 
         <TabPanel>
-          <h2>Home</h2>
+          <div>
+            <h2>
+              Home
+            </h2>
+            <p>
+              Welcome to the Home page!
+            </p>
+          </div>
         </TabPanel>
         <TabPanel>
           <ProfileManagement />

@@ -29,4 +29,21 @@ async function DisplayEmployees(){
     return await user.functions.DisplayEmployees();
 }
 
-export { AddEmployee, EmployeeLogin, DisplayEmployees };
+async function requestTimeOff( username, startDate, endDate, reason ){
+    const user = await app().logIn(credentials());
+    return await user.functions.requestTimeOff( username, startDate, endDate, reason );
+}
+
+async function updateUserProfile(_id, email, firstName, lastName, phoneNumber, address, city, state, zipCode, country, emergencyContactName, emergencyContactPhone, emergencyContactEmail, emergencyContactAddress, emergencyContactCity, emergencyContactState, emergencyContactZipCode, emergencyContactCountry){
+    const user = await app().logIn(credentials());
+    return await user.functions.updateProfile(
+        _id, email, firstName, lastName, phoneNumber, address, city, state, zipCode, country, emergencyContactName, emergencyContactPhone, emergencyContactEmail, emergencyContactAddress, emergencyContactCity, emergencyContactState, emergencyContactZipCode, emergencyContactCountry
+    );
+}
+
+async function getEmployee(_id){
+    const user = await app().logIn(credentials());
+    return await user.functions.getEmployee(_id);
+}
+
+export { AddEmployee, EmployeeLogin, DisplayEmployees, requestTimeOff, updateUserProfile, getEmployee };
