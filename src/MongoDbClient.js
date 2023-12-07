@@ -46,4 +46,9 @@ async function getEmployee(_id){
     return await user.functions.getEmployee(_id);
 }
 
-export { AddEmployee, EmployeeLogin, DisplayEmployees, requestTimeOff, updateUserProfile, getEmployee };
+async function AddTaskToUser(_id, task){
+    const user = await app().logIn(credentials());
+    return await user.functions.AddTaskToUser(_id, task);
+}
+
+export { AddEmployee, EmployeeLogin, DisplayEmployees, requestTimeOff, updateUserProfile, getEmployee, AddTaskToUser };
