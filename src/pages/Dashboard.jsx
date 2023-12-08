@@ -48,15 +48,20 @@ function Dashboard() {
         </TabList>
 
         <TabPanel>
-          <div>
-            <h2>
-              Home
-            </h2>
-            <p>
-              Welcome to the Home page!
-            </p>
-          </div>
-        </TabPanel>
+  <div className="homepage-panel">
+    <h2>Welcome to Your Dashboard</h2>
+    <p>Here's where your journey begins each day. Navigate through the tabs to manage your tasks, view schedules, and more.</p>
+    <div className="quick-info">
+      <p>📅 Check your schedule in 'View Schedules'</p>
+      <p>📄 Access and manage documents in 'Document Access and Management'</p>
+      <p>🛠 Manage your profile in 'Profile Management'</p>
+    </div>
+    {/* You can add an image or icon here if relevant */}
+    {/* <img src="welcome-image.jpg" alt="Welcome" className="welcome-image" /> */}
+  </div>
+</TabPanel>
+
+
         <TabPanel>
           <ProfileManagement />
         </TabPanel>

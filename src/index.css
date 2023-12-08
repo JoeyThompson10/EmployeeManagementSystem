@@ -11,3 +11,31 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.homepage-panel {
+  padding: 20px;
+  background-color: #f4f4f4; /* Example background color */
+  border-radius: 8px;
+  text-align: center;
+}
+
+.homepage-panel h2 {
+  color: #333; /* Example text color */
+  margin-bottom: 15px;
+}
+
+.homepage-panel p {
+  color: #666; /* Example text color */
+  margin-bottom: 10px;
+}
+
+.quick-info p {
+  font-style: italic;
+  color: #444; /* Slightly darker text for emphasis */
+}
+
+/* Optional: Style for an image if you choose to include one */
+.welcome-image {
+  max-width: 100%;
+  height: auto;
+  margin-top: 20px;
+}
