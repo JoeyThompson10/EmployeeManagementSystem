@@ -64,3 +64,12 @@ html, body {
 .App-content {
   flex: 1;
 }
+
+.different-month-day {
+  color: gray; /* or any other styles you want for different month days */
+}
+
+.current-day {
+  background-color: lightskyblue; /* or any other styles you want for the current day */
+  color: white; /* text color for better visibility */
+}
