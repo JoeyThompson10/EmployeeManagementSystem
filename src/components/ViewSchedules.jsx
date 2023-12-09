@@ -15,11 +15,16 @@ const Legend = () => (
             <span style={{ display: 'inline-block', width: '20px', height: '20px', backgroundColor: 'green', marginRight: '5px' }}></span>
             <span>Work Scheduled</span>
         </div>
+        <div>
+        <span style={{ display: 'inline-block', width: '20px', height: '20px', backgroundColor: 'gray', marginRight: '5px' }}></span>
+            <span>Approved Time Off</span>
+        </div>
     </div>
 );
 
 const ViewSchedules = () => {
     const [employees, setEmployees] = useState([]);
+    const [employee, setEmployee] = useState();
     const [schedule, setSchedule] = useState([]);
     const [assigneeId, setAssigneeId] = useState('');
     const [isUserChosen, setIsUserChosen] = useState(false);
@@ -33,6 +38,7 @@ const ViewSchedules = () => {
           if (employee && employee.schedule) {
             console.log(`Schedule for ${assigneeId}: ${JSON.stringify(employee.schedule)}`);
             setSchedule(employee.schedule);
+            setEmployee(employee);
           } else {
             console.log(`No schedule found for ${assigneeId}`);
             setSchedule([]);
@@ -68,8 +74,22 @@ const ViewSchedules = () => {
             return scheduleDate === dateString;
         });
 
+        const isTimeOff = schedule.some((day) => {
+            const timeOffRequests = employee.timeOffRequests || []; // Assuming employee is defined
+            return (
+                timeOffRequests.some(
+                    (request) =>
+                        request.status === 'Approved' &&
+                        date >= new Date(request.startDate) &&
+                        date <= new Date(request.endDate)
+                )
+            );
+        });
+
         if (isCurrentDay && isCurrentYear) {
             return 'current-day';
+        } else if (isTimeOff){
+            return 'time-off-approved';
         } else if ((isWithinSchedule || isWithinScheduleRange) && !isWeekend) {
             return 'within-schedule';
         } else {

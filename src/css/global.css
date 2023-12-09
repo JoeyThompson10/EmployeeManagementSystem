@@ -78,3 +78,8 @@ html, body {
   background-color: green;
   color: white;
 }
+
+.time-off-approved {
+  background-color: gray;
+  color: white;
+}
