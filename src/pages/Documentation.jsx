@@ -1,4 +1,5 @@
 import React from "react"; 
+import '../css/global.css';
 
 const Documentation = () => {
     return (
