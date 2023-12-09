@@ -16,17 +16,22 @@ function DocumentationPage(){
             <ul>
                 <li>
                     <strong>Project Proposal: </strong> 
-                    <a href="https://rb.gy/vy245e">Project Proposal</a>
+                    <a href="/ProjectProposal.pdf" download>Download Document</a>
                 </li>
                 <li>
-                    <strong>ER Diagram: </strong>
-                    <a href="https://rb.gy/ukfnra">ER Diagram</a>
+                    <strong>Database and Web Implementation: </strong>
+                    <a href="/DatabaseAndWebImplementation.pdf" download>Download Document</a>
                 </li>
             </ul>
             <h4>Code Repository:</h4>
                 <p>
                     To view the source code for this project, please click the following link:
                     <a href= "https://github.com/JoeyThompson10/EmployeeManagementSystem"> LINK TO SOURCE CODE HERE </a>
+                </p>
+            <h5>Project Video</h5>
+                <p>
+                    Watch project demo video here: 
+                    <a href= "https://youtube.com"> WATCH VIDEO NOW </a>
                 </p>
         </div>
     );
