@@ -50,5 +50,8 @@ async function AddTaskToUser(_id, task){
     const user = await app().logIn(credentials());
     return await user.functions.AddTaskToUser(_id, task);
 }
-
-export { AddEmployee, EmployeeLogin, DisplayEmployees, requestTimeOff, updateUserProfile, getEmployee, AddTaskToUser };
+async function AddLeaveRange(_id, leave){
+    const user = await app().logIn(credentials());
+    return await user.functions.AddLeaveRange(_id, leave);
+}
+export { AddEmployee, EmployeeLogin, DisplayEmployees, requestTimeOff, updateUserProfile, getEmployee, AddTaskToUser, AddLeaveRange};
