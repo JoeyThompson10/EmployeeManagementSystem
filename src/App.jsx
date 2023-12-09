@@ -4,6 +4,7 @@ import Header from './components/headerfooter/Header';
 import Footer from './components/headerfooter/Footer';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
+import DocumentationPage from './pages/DocumentationPage';
 import ContactPage from './pages/ContactPage';
 import TermsPage from './pages/TermsPage';
 import LoginPage from './pages/LoginPage';
@@ -22,6 +23,7 @@ function App() {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/about" element={<AboutPage />} />
+            <Route path="documentation" element={<DocumentationPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/terms" element={<TermsPage />} />
           </Routes>
