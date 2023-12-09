@@ -28,10 +28,10 @@ function Dashboard() {
           <div>
             <h2 className="text-center my-4">Welcome to Your Dashboard</h2>
 
-            <p className="lead text-center">
+            <p className="text-center">
               Here's where your journey begins each day. Navigate through the tabs to manage your tasks, view schedules, and more.
             </p>
-            <div className="lead text-center">
+            <div className="text-center">
               <p>📅 Check your schedule in 'View Schedules'</p>
               <p>📝 Request time off in 'Request Time Off'</p>
               <p>🛠 Manage your profile in 'Profile Management'</p>
