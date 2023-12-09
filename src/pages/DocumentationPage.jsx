@@ -31,4 +31,4 @@ function Documentation(){
     );
 };
 
-export default Documentation;
+export default DocumentationPage;
