@@ -5,6 +5,19 @@ import { DisplayEmployees } from '../MongoDbClient';
 
 const _id = localStorage.getItem('username');
 
+const Legend = () => (
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', marginBottom: '10px' }}>
+        <div>
+            <span style={{ display: 'inline-block', width: '20px', height: '20px', backgroundColor: 'lightskyblue', marginRight: '5px' }}></span>
+            <span>Current Day</span>
+        </div>
+        <div>
+            <span style={{ display: 'inline-block', width: '20px', height: '20px', backgroundColor: 'green', marginRight: '5px' }}></span>
+            <span>Work Scheduled</span>
+        </div>
+    </div>
+);
+
 const ScheduleManagement = () => {
     const [schedule, setSchedule] = useState([]);
     
@@ -54,6 +67,7 @@ const ScheduleManagement = () => {
         <div>
             <h2>Schedule Management</h2>
             <h3>User: {_id}</h3>
+            <Legend />
             <div style={{ maxWidth: '600px', margin: 'auto', textAlign: 'center', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', padding: '20px', borderRadius: '8px' }}>
             <Calendar 
                 style={{ width: '100%' }}
