@@ -1,7 +1,7 @@
 import React from "react"; 
 import '../css/global.css';
 
-function Documentation(){
+function DocumentationPage(){
     return (
         <div className="documentation-page">
             <h1>Contributors</h1>
