@@ -5,75 +5,102 @@ import { DisplayEmployees } from '../MongoDbClient';
 
 const _id = localStorage.getItem('username');
 
-const Legend = () => (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', marginBottom: '10px' }}>
-        <div>
-            <span style={{ display: 'inline-block', width: '20px', height: '20px', backgroundColor: 'lightskyblue', marginRight: '5px' }}></span>
-            <span>Current Day</span>
-        </div>
-        <div>
-            <span style={{ display: 'inline-block', width: '20px', height: '20px', backgroundColor: 'green', marginRight: '5px' }}></span>
-            <span>Work Scheduled</span>
-        </div>
-    </div>
-);
-
 const ScheduleManagement = () => {
-    const [schedule, setSchedule] = useState([]);
+    const [timeOffRequests, setTimeOffRequests] = useState([]);
+    const [employees, setEmployees] = useState([]);
     
     useEffect(() => {
-        async function fetchData() {
-            // Retrieve the employee with the matching username
-            const employee = await getEmployee(_id);
-    
-            // Check if the employee exists and has a schedule
-            if (employee && employee.schedule) {
-                setSchedule(employee.schedule);
-                console.log(`Schedule for ${_id}: ${JSON.stringify(employee.schedule)}`);
-            } else {
-                console.log(`No schedule found for ${_id}`);
+        DisplayEmployees().then(response => {
+            if (response && response.data) {
+                setEmployees(response.data);
             }
-        }
-        fetchData();
-    }, [_id]);
-
-    const tileClassName = ({ date }) => {
-        const dateString = date.toISOString().split('T')[0]; // Convert date to string in "YYYY-MM-DD" format
-        const isCurrentYear = date.getFullYear() === new Date().getFullYear(); // Check if the date is in the current year
-        const isCurrentMonth = isCurrentYear && date.getMonth() === new Date().getMonth(); // Check if the date is in the current month
-        const isCurrentDay = isCurrentMonth && date.getDate() === new Date().getDate();
-        const dayOfWeek = date.getDay(); // 0 for Sunday, 1 for Monday, ..., 6 for Saturday
-
-        // Check if the current date is a Saturday or Sunday
-        const isWeekend = dayOfWeek === 0 || dayOfWeek === 6;
-
-        // Check if the current date is within the range of the first and last day of the schedule
-        const isWithinScheduleRange = schedule.length > 0 && date >= new Date(schedule[0]) && date <= new Date(schedule[schedule.length - 1]);
-
-        const isWithinSchedule = schedule.some(day => {
-            const scheduleDate = new Date(day).toISOString().split('T')[0];
-            return scheduleDate === dateString;
         });
+    }, []);
 
-        if (isCurrentDay && isCurrentYear) {
-            return 'current-day';
-        } else if ((isWithinSchedule || isWithinScheduleRange) && !isWeekend) {
-            return 'within-schedule';
-        } else {
-            return '';
+    useEffect(() => {
+        // Fetch time off requests for each employee
+        const fetchTimeOffRequests = async () => {
+            const requests = await Promise.all(
+                employees.map(employee => getEmployee(employee._id))
+            );
+
+            // Flatten the array of time off requests
+            const allRequests = requests.flatMap(request => request.data.timeOffRequests);
+
+            setTimeOffRequests(allRequests);
+        };
+
+        fetchTimeOffRequests();
+    }, [employees]);
+
+    const handleApproveRequest = async (employeeId, requestIndex) => {
+        try {
+            // Update the status in the database
+            await updateRequestStatus(employeeId, requestIndex, 'Approved');
+
+            // Update the state to reflect the change
+            const updatedEmployees = [...employees];
+            updatedEmployees.forEach(employee => {
+                if (employee._id === employeeId && employee.timeOffRequests) {
+                    employee.timeOffRequests[requestIndex].status = 'Approved';
+                }
+            });
+            setEmployees(updatedEmployees);
+
+            DisplayEmployees().then(response => {
+                if (response && response.data) {
+                    setEmployees(response.data);
+                }
+            });
+
+        } catch (error) {
+            console.error('Error approving time off request:', error);
         }
     };
+
     return (
         <div>
             <h2>Schedule Management</h2>
-            <h3>User: {_id}</h3>
-            <Legend />
-            <div style={{ maxWidth: '600px', margin: 'auto', textAlign: 'center', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', padding: '20px', borderRadius: '8px' }}>
-            <Calendar 
-                style={{ width: '100%' }}
-                tileClassName={tileClassName}
-            />
-            </div>
+            <h3>Time Off Requests Pending Approval:</h3>
+            <table className="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Time Off Requests</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {employees.map((employee, index) => (
+                    <tr key={index}>
+                        <td>{employee._id}</td>
+                        <td>{employee.name}</td>
+                        <td>{employee.email}</td>
+                        {/* Display time off requests for each employee */}
+                        <td>
+                            {employee.timeOffRequests && employee.timeOffRequests.length > 0 ? (
+                                employee.timeOffRequests.map((request, requestIndex) => (
+                                    <div key={requestIndex} style={{ borderBottom: '1px solid #ccc', marginBottom: '8px' }}>
+                                        <strong>Reason:</strong> {request.reason} <br />
+                                        <strong>Status:</strong> {request.status} <br />
+                                        <strong>Start Date:</strong> {request.startDate} <br />
+                                        <strong>End Date:</strong> {request.endDate} <br />
+                                        {request.status === 'Pending' && (
+                                            <button onClick={() => handleApproveRequest(employee._id, requestIndex)}>
+                                                Approve
+                                            </button>
+                                        )}
+                                    </div>
+                                ))
+                            ) : (
+                                <div>No time off requests</div>
+                            )}
+                        </td>
+                    </tr>
+                ))}
+            </tbody>
+            </table>
         </div>
     );
 };
