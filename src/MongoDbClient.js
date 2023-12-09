@@ -54,4 +54,9 @@ async function AddLeaveRange(_id, leave){
     const user = await app().logIn(credentials());
     return await user.functions.AddLeaveRange(_id, leave);
 }
-export { AddEmployee, EmployeeLogin, DisplayEmployees, requestTimeOff, updateUserProfile, getEmployee, AddTaskToUser, AddLeaveRange};
+
+async function updateRequestStatus(_id, index){
+    const user = await app().logIn(credentials());
+    return await user.functions.updateRequestStatus(_id, index);
+}
+export { AddEmployee, EmployeeLogin, DisplayEmployees, requestTimeOff, updateUserProfile, getEmployee, AddTaskToUser, AddLeaveRange, updateRequestStatus};
