@@ -1,45 +1,73 @@
 import React, { useEffect, useState } from 'react';
 import Calendar from 'react-calendar';
 import { getEmployee } from '../MongoDbClient';
+import { DisplayEmployees } from '../MongoDbClient';
 
 const _id = localStorage.getItem('username');
+
+const Legend = () => (
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', marginBottom: '10px' }}>
+        <div>
+            <span style={{ display: 'inline-block', width: '20px', height: '20px', backgroundColor: 'lightskyblue', marginRight: '5px' }}></span>
+            <span>Current Day</span>
+        </div>
+        <div>
+            <span style={{ display: 'inline-block', width: '20px', height: '20px', backgroundColor: 'green', marginRight: '5px' }}></span>
+            <span>Work Scheduled</span>
+        </div>
+    </div>
+);
 
 const ScheduleManagement = () => {
     const [schedule, setSchedule] = useState([]);
     
     useEffect(() => {
-        // Fetch the user's schedule from the server using an API call
-        getEmployee(_id)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => setSchedule(data.schedule))
-            .catch(error => console.error('Error fetching schedule:', error));
+        async function fetchData() {
+            // Retrieve the employee with the matching username
+            const employee = await getEmployee(_id);
+    
+            // Check if the employee exists and has a schedule
+            if (employee && employee.schedule) {
+                setSchedule(employee.schedule);
+                console.log(`Schedule for ${_id}: ${JSON.stringify(employee.schedule)}`);
+            } else {
+                console.log(`No schedule found for ${_id}`);
+            }
+        }
+        fetchData();
     }, [_id]);
 
     const tileClassName = ({ date }) => {
         const dateString = date.toISOString().split('T')[0]; // Convert date to string in "YYYY-MM-DD" format
-        const isScheduled = schedule.includes(dateString);
-        const isCurrentDay = date.getDate() === new Date().getDate();
-        const isDifferentMonth = date.getMonth() !== new Date().getMonth();
+        const isCurrentYear = date.getFullYear() === new Date().getFullYear(); // Check if the date is in the current year
+        const isCurrentMonth = isCurrentYear && date.getMonth() === new Date().getMonth(); // Check if the date is in the current month
+        const isCurrentDay = isCurrentMonth && date.getDate() === new Date().getDate();
+        const dayOfWeek = date.getDay(); // 0 for Sunday, 1 for Monday, ..., 6 for Saturday
 
-        if (isScheduled) {
-            return 'scheduled-day';
-        } else if (isCurrentDay) {
+        // Check if the current date is a Saturday or Sunday
+        const isWeekend = dayOfWeek === 0 || dayOfWeek === 6;
+
+        // Check if the current date is within the range of the first and last day of the schedule
+        const isWithinScheduleRange = schedule.length > 0 && date >= new Date(schedule[0]) && date <= new Date(schedule[schedule.length - 1]);
+
+        const isWithinSchedule = schedule.some(day => {
+            const scheduleDate = new Date(day).toISOString().split('T')[0];
+            return scheduleDate === dateString;
+        });
+
+        if (isCurrentDay && isCurrentYear) {
             return 'current-day';
-        } else if (isDifferentMonth) {
-            return 'different-month-day';
+        } else if ((isWithinSchedule || isWithinScheduleRange) && !isWeekend) {
+            return 'within-schedule';
         } else {
             return '';
         }
-      };
+    };
     return (
         <div>
             <h2>Schedule Management</h2>
             <h3>User: {_id}</h3>
+            <Legend />
             <div style={{ maxWidth: '600px', margin: 'auto', textAlign: 'center', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', padding: '20px', borderRadius: '8px' }}>
             <Calendar 
                 style={{ width: '100%' }}
