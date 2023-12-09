@@ -86,7 +86,8 @@ const ViewSchedules = () => {
     return (
         <div>
             <h2>View Schedules</h2>
-            <select id="assignee" onChange={handleAssigneeChange} value={assigneeId}>
+            <div style={{ maxWidth: '600px', margin: 'auto', textAlign: 'center', padding: '20px', borderRadius: '8px' }}>
+            <select id="assignee" onChange={handleAssigneeChange} value={assigneeId} style={{textAlign: 'center'}}>
                     <option value="">Select Employee</option>
                     {employees.map(employee => (
                         <option key={employee._id} value={employee._id}>
@@ -94,6 +95,7 @@ const ViewSchedules = () => {
                         </option>
                     ))}
                 </select>
+            </div>
             <div>
                 {isUserChosen &&
                 <Legend />
