@@ -15,11 +15,11 @@ function DocumentationPage(){
             <ul>
                 <li>
                     <strong>Project Proposal: </strong> 
-                    <a href="file:///Users/imaniallen/Downloads/ProjectProposal.pdf" download>Project Proposal</a>
+                    <a href="https://rb.gy/5wsugu" download>Project Proposal</a>
                 </li>
                 <li>
                     <strong>ER Diagram: </strong>
-                    <a href="file:///Users/imaniallen/Downloads/DatabaseAndWebImplementation.pdf" download>ER Diagram</a>
+                    <a href="https://rb.gy/hl1wp0" download>ER Diagram</a>
                 </li>
             </ul>
             <h3>Code Repository:</h3>
