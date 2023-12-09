@@ -8,6 +8,7 @@ function Footer() {
       <div className="container">
         <nav className="footer-nav">
           <Link to="/about" className="text-light text-decoration-none mx-2" title="Learn more about us">About</Link> |
+          <Link to="/documentation" className="text-light text-decoration-none mx-2" title="View project documents">Documentation</Link> |
           <Link to="/contact" className="text-light text-decoration-none mx-2" title="Get in touch with us">Contact</Link> |
           <Link to="/terms" className="text-light text-decoration-none mx-2" title="Read our terms and conditions">Terms</Link>
         </nav>

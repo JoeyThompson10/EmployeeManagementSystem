@@ -33,6 +33,7 @@
 .home-page,
 .about-page,
 .contact-page,
+.documentation-page,
 .terms-page {
   flex: 1;
   padding: 20px;
