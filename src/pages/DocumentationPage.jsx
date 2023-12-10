@@ -1,21 +1,21 @@
-import React from "react"; 
+import React from "react";
 import '../css/global.css';
 
-function DocumentationPage(){
+function DocumentationPage() {
     return (
         <div className="documentation-page">
             <h1>Documentation</h1>
             <h2>Contributors</h2>
-                <p>
-                    Created by: Alejandro Bhagwandeen, Zeshan Khan, Carter Ray, Joseph Thompson, and Imani Allen <br />
-                    School: Kennesaw State University <br />
-                    Class: Cloud Software Development (SWE 4633 Section 01) <br />
-                    Year: 2023
-                </p>
+            <p>
+                Created by: Alejandro Bhagwandeen, Zeshan Khan, Carter Ray, Joseph Thompson, and Imani Allen <br />
+                School: Kennesaw State University <br />
+                Class: Cloud Software Development (SWE 4633 Section 01) <br />
+                Year: 2023
+            </p>
             <h3>Project Documentation</h3>
             <ul>
                 <li>
-                    <strong>Project Proposal: </strong> 
+                    <strong>Project Proposal: </strong>
                     <a href="/ProjectProposal.pdf" download>Download Document</a>
                 </li>
                 <li>
@@ -24,21 +24,27 @@ function DocumentationPage(){
                 </li>
             </ul>
             <h4>Code Repository:</h4>
-                <p>
-                    To view the source code for this project, please click the following link:
-                    <a href= "https://github.com/JoeyThompson10/EmployeeManagementSystem"> LINK TO SOURCE CODE HERE </a>
-                </p>
+            <p>
+                To view the source code for this project, please click the following link:
+                <a href="https://github.com/JoeyThompson10/EmployeeManagementSystem"> LINK TO SOURCE CODE HERE </a>
+            </p>
             <h5>Project Video</h5>
-                <p>
-                    Watch project demo video here: 
-                    <a href= "https://www.youtube.com/watch?v=dQw4w9WgXcQ"> WATCH VIDEO NOW </a>
-                </p>
+            <p>
+                Watch project demo video here:
+                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"> WATCH VIDEO NOW </a>
+            </p>
 
-                
+
             <h6>When I broke the code!</h6>
-               <iframe width="420" height="315"
-               src="https://www.youtube.com/embed/nOWRVyq9USg&list=PLUMOK4qJN6ds_Hzd9wSe4iAaLMSQNyOhc&index=23">
-               </iframe>
+            <iframe width="420" height="315"
+                src="https://www.youtube.com/embed/nOWRVyq9USg&list=PLUMOK4qJN6ds_Hzd9wSe4iAaLMSQNyOhc&index=23">
+            </iframe>
+
+            <h6>When I fixed the code!</h6>
+            <iframe width="420" height="315"
+                src="https://www.youtube.com/embed/nOWRVyq9USg">
+            </iframe>
+
 
         </div>
     );
