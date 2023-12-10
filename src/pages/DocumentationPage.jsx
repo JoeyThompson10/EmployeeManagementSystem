@@ -37,7 +37,7 @@ function DocumentationPage(){
                 
             <h6>When I broke the code!</h6>
                <iframe width="420" height="315"
-               src="https://www.youtube.com/watch?v=nOWRVyq9USg&list=PLUMOK4qJN6ds_Hzd9wSe4iAaLMSQNyOhc&index=23">
+               src="https://www.youtube.com/embed/nOWRVyq9USg&list=PLUMOK4qJN6ds_Hzd9wSe4iAaLMSQNyOhc&index=23">
                </iframe>
 
         </div>
