@@ -2,6 +2,14 @@
 
 Welcome to the Employee Management System (EMS) - a comprehensive web application designed for both managers and employees. This React-based application integrates various functionalities like profile management, leave requests, schedule viewing, and more, tailored to enhance organizational efficiency.
 
+## Setup and Installation
+
+1. Clone the repository from [GitHub](https://github.com/JoeyThompson10/EmployeeManagementSystem).
+2. Install necessary dependencies:
+   ```npm install```
+3. Start the application:
+```npm run dev```
+
 ## Features
 
 - **Dashboard**: A user-friendly interface to navigate through various functionalities.
@@ -22,15 +30,6 @@ Welcome to the Employee Management System (EMS) - a comprehensive web applicatio
 - **Backend Integration**: MongoDB Realm for database operations.
 - **Authentication**: Implemented through Realm API key authentication.
 - **Cloud Services**: Integration with cloud-based databases and services.
-
-## Setup and Installation
-
-1. Clone the repository from [GitHub](https://github.com/JoeyThompson10/EmployeeManagementSystem).
-2. Install necessary dependencies:
-   ```npm install```
-3. Set up environment variables for API keys and other configurations.
-4. Start the application:
-```npm start```
 
 ## Usage
 
