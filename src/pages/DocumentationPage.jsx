@@ -5,7 +5,7 @@ function DocumentationPage() {
     return (
         <div className="documentation-page">
             <h1>Documentation</h1>
-            <h2>Contributors</h2>
+            <h3>Contributors</h3>
             <p>
                 Created by: Alejandro Bhagwandeen, Zeshan Khan, Carter Ray, Joseph Thompson, and Imani Allen <br />
                 School: Kennesaw State University <br />
@@ -23,24 +23,12 @@ function DocumentationPage() {
                     <a href="/DatabaseAndWebImplementation.pdf" download>Download Document</a>
                 </li>
             </ul>
-            <h4>Code Repository:</h4>
+            <h3>Code Repository:</h3>
             <p>
                 To view the source code for this project, please click the following link:
                 <a href="https://github.com/JoeyThompson10/EmployeeManagementSystem"> LINK TO SOURCE CODE HERE </a>
             </p>
-            <h5>Project Video</h5>
-            <p>
-                Watch project demo video here:
-                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"> WATCH VIDEO NOW </a>
-            </p>
-
-
-            <h6>When I broke the code!</h6>
-            <iframe width="420" height="315"
-                src="https://www.youtube.com/embed/nOWRVyq9USg&list=PLUMOK4qJN6ds_Hzd9wSe4iAaLMSQNyOhc&index=23">
-            </iframe>
-
-            <h6>When I fixed the code!</h6>
+            <h3>Project Video</h3>
             <iframe width="420" height="315"
                 src="https://www.youtube.com/embed/nOWRVyq9USg">
             </iframe>
