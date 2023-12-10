@@ -6,7 +6,6 @@ import ExpenseClaims from '../components/ExpenseClaims';
 import FeedbackForm from '../components/FeedbackForm';
 import HiringOnboarding from '../components/HiringOnboarding';
 import LeaveManagement from '../components/LeaveManagement';
-import PayrollManagement from '../components/PayrollManagement';
 import ProfileManagement from '../components/ProfileManagement';
 import RequestTimeOff from '../components/RequestTimeOff';
 import ScheduleManagement from '../components/ScheduleManagement';
@@ -50,8 +49,6 @@ function Dashboard() {
         return <HiringOnboarding />;
       case 'scheduleManagement':
         return isManager ? <ScheduleManagement /> : null;
-      case 'payrollManagement':
-        return isManager ? <PayrollManagement /> : null;
       case 'leaveManagement':
         return isManager ? <LeaveManagement /> : null;
       case 'employeeManagement':
@@ -92,9 +89,6 @@ function Dashboard() {
           <>
             <li className="nav-item">
               <button className={`nav-link ${activeTab === 'scheduleManagement' ? 'active' : ''}`} onClick={() => setActiveTab('scheduleManagement')}>Schedule Management</button>
-            </li>
-            <li className="nav-item">
-              <button className={`nav-link ${activeTab === 'payrollManagement' ? 'active' : ''}`} onClick={() => setActiveTab('payrollManagement')}>Payroll Management</button>
             </li>
             <li className="nav-item">
               <button className={`nav-link ${activeTab === 'leaveManagement' ? 'active' : ''}`} onClick={() => setActiveTab('leaveManagement')}>Leave Management</button>

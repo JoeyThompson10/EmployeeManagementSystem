@@ -11,10 +11,9 @@ Welcome to the Employee Management System (EMS) - a comprehensive web applicatio
 - **Feedback Form**: Submit feedback to the management.
 - **Task Management**: Manage and assign tasks to employees.
 - **Expense Claims**: Upload and manage expense claims.
+- **Onboarding**: Training videos.
 - **Employee Management**: (For managers) Manage employee profiles and details.
-- **Hiring and Onboarding**: Streamline the hiring and onboarding process.
 - **Schedule Management**: (For managers) Review and manage employee schedules.
-- **Payroll Management**: (For managers) Handle payroll related tasks.
 - **Leave Management**: (For managers) Manage employee leave requests.
 
 ## Technical Details
