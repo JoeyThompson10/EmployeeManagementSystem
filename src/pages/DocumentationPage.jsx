@@ -6,12 +6,13 @@ function DocumentationPage() {
         <div className="documentation-page">
             <h1>Documentation</h1>
             <h3>Contributors</h3>
-            <p>
-                Created by: Alejandro Bhagwandeen, Zeshan Khan, Carter Ray, Joseph Thompson, and Imani Allen <br />
-                School: Kennesaw State University <br />
-                Class: Cloud Software Development (SWE 4633 Section 01) <br />
-                Year: 2023
-            </p>
+            <div className="contributors">
+                <p>
+                    <strong>Created by:</strong> Alejandro Bhagwandeen, Zeshan Khan, Carter Ray, Joseph Thompson, and Imani Allen
+                </p>
+                <p><strong>for </strong> Cloud Software Development (SWE 4633 Section 01) <strong>at </strong> Kennesaw State University</p>
+                <p><strong>Instructor: </strong> Dr. Xia Li</p>
+            </div>
             <h3>Project Documentation</h3>
             <ul>
                 <li>
