@@ -2,12 +2,20 @@
 
 Welcome to the Employee Management System (EMS) - a comprehensive web application designed for both managers and employees. This React-based application integrates various functionalities like profile management, leave requests, schedule viewing, and more, tailored to enhance organizational efficiency.
 
+## Prerequisites
+
+Before you begin, ensure you have met the following requirements:
+
+- **Install Node.js**: Node.js is required to run this project. You can download it from [Node.js Official Website](https://nodejs.org/en/download).
+
+- **Download the Latest Release**: To use the Employee Management System, download the latest release from the GitHub releases page. You can find it here: [Employee Management System Releases](https://github.com/JoeyThompson10/EmployeeManagementSystem/releases).
+
 ## Setup and Installation
 
 1. Install necessary dependencies:
-   ```npm install```
+  ```npm install```
 2. Start the application:
-```npm run dev```
+  ```npm run dev```
 
 ## Features
 
