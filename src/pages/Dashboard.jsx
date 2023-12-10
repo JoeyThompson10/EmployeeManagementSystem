@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import AttendanceTracking from '../components/AttendanceTracking';
-import DocumentManagement from '../components/DocumentManagement';
 import EmployeeManagement from '../components/EmployeeManagement';
-import EmployeePerformance from '../components/EmployeePerformance';
 import ExpenseClaims from '../components/ExpenseClaims';
 import FeedbackForm from '../components/FeedbackForm';
 import HiringOnboarding from '../components/HiringOnboarding';
@@ -24,7 +21,6 @@ function Dashboard() {
     switch (activeTab) {
       case 'home':
         return (
-
           <div>
             <h2 className="text-center my-4">Welcome to Your Dashboard</h2>
 
@@ -40,29 +36,24 @@ function Dashboard() {
         );
       case 'profileManagement':
         return <ProfileManagement />;
-
       case 'requestTimeOff':
         return <RequestTimeOff />;
       case 'viewSchedules':
         return <ViewSchedules />;
       case 'feedback':
         return <FeedbackForm />;
-      case 'attendanceTracking':
-        return <AttendanceTracking />;
       case 'taskManagement':
         return <TaskManagement />;
       case 'expenseClaims':
         return <ExpenseClaims />;
+      case 'hiringOnboarding':
+        return <HiringOnboarding />;
       case 'scheduleManagement':
         return isManager ? <ScheduleManagement /> : null;
       case 'payrollManagement':
         return isManager ? <PayrollManagement /> : null;
-      case 'employeePerformance':
-        return isManager ? <EmployeePerformance /> : null;
       case 'leaveManagement':
         return isManager ? <LeaveManagement /> : null;
-      case 'hiringOnboarding':
-        return isManager ? <HiringOnboarding /> : null;
       case 'employeeManagement':
         return isManager ? <EmployeeManagement /> : null;
       default:
@@ -79,8 +70,6 @@ function Dashboard() {
         <li className="nav-item">
           <button className={`nav-link ${activeTab === 'profileManagement' ? 'active' : ''}`} onClick={() => setActiveTab('profileManagement')}>Profile Management</button>
         </li>
-
-        {/* More tabs follow the same pattern */}
         <li className="nav-item">
           <button className={`nav-link ${activeTab === 'requestTimeOff' ? 'active' : ''}`} onClick={() => setActiveTab('requestTimeOff')}>Request Time Off</button>
         </li>
@@ -91,13 +80,13 @@ function Dashboard() {
           <button className={`nav-link ${activeTab === 'feedback' ? 'active' : ''}`} onClick={() => setActiveTab('feedback')}>Feedback</button>
         </li>
         <li className="nav-item">
-          <button className={`nav-link ${activeTab === 'attendanceTracking' ? 'active' : ''}`} onClick={() => setActiveTab('attendanceTracking')}>Attendance Tracking</button>
-        </li>
-        <li className="nav-item">
           <button className={`nav-link ${activeTab === 'taskManagement' ? 'active' : ''}`} onClick={() => setActiveTab('taskManagement')}>Task Management</button>
         </li>
         <li className="nav-item">
           <button className={`nav-link ${activeTab === 'expenseClaims' ? 'active' : ''}`} onClick={() => setActiveTab('expenseClaims')}>Expense Claims</button>
+        </li>
+        <li className="nav-item">
+          <button className={`nav-link ${activeTab === 'hiringOnboarding' ? 'active' : ''}`} onClick={() => setActiveTab('hiringOnboarding')}>Onboarding</button>
         </li>
         {isManager && (
           <>
@@ -108,13 +97,7 @@ function Dashboard() {
               <button className={`nav-link ${activeTab === 'payrollManagement' ? 'active' : ''}`} onClick={() => setActiveTab('payrollManagement')}>Payroll Management</button>
             </li>
             <li className="nav-item">
-              <button className={`nav-link ${activeTab === 'employeePerformance' ? 'active' : ''}`} onClick={() => setActiveTab('employeePerformance')}>Employee Performance Monitoring</button>
-            </li>
-            <li className="nav-item">
               <button className={`nav-link ${activeTab === 'leaveManagement' ? 'active' : ''}`} onClick={() => setActiveTab('leaveManagement')}>Leave Management</button>
-            </li>
-            <li className="nav-item">
-              <button className={`nav-link ${activeTab === 'hiringOnboarding' ? 'active' : ''}`} onClick={() => setActiveTab('hiringOnboarding')}>Hiring and Onboarding</button>
             </li>
             <li className="nav-item">
               <button className={`nav-link ${activeTab === 'employeeManagement' ? 'active' : ''}`} onClick={() => setActiveTab('employeeManagement')}>Employee Management</button>
