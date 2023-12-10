@@ -36,7 +36,7 @@ function DocumentationPage() {
                 </a>
             </p>
             <h3 className="mb-2">Project Video</h3>
-            <iframe width="420" height="315" src="https://www.youtube.com/embed/nOWRVyq9USg" title="Project Video" className="mb-4"></iframe>
+            <iframe width="420" height="315" src="https://www.youtube.com/embed/D-eWMSW9VbQ?si=ufFhVGqhnSyo89GG" title="Project Video" className="mb-4"></iframe>
         </div>
     );
 };
