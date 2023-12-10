@@ -28,14 +28,9 @@ const HiringOnboarding = () => {
             </div>
             <br />
             <h3 style={{textAlign:'center'}}>How To Succeed:</h3>
+            
             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-            <iframe
-                style={{ border: 'none' }}
-                width="420"
-                height="315"
-                src="https://youtube.com/embed/dQw4w9WgXcQ"
-                title="YouTube Video"
-            ></iframe>
+                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noreferrer"> https://www.youtube.com/watch?v=dQw4w9WgXcQ </a>
             </div>
         </div>
     );
