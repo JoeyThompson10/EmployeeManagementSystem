@@ -4,10 +4,9 @@ Welcome to the Employee Management System (EMS) - a comprehensive web applicatio
 
 ## Setup and Installation
 
-1. Clone the repository from [GitHub](https://github.com/JoeyThompson10/EmployeeManagementSystem).
-2. Install necessary dependencies:
+1. Install necessary dependencies:
    ```npm install```
-3. Start the application:
+2. Start the application:
 ```npm run dev```
 
 ## Features
