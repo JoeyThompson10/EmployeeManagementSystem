@@ -38,7 +38,7 @@ Welcome to the Employee Management System (EMS) - a comprehensive web applicatio
 - **Login**: Users must login to access the system. Manager accounts have additional privileges.
 - **Navigation**: Use the dashboard tabs to access different functionalities.
 - **Operations**: Each module provides specific operations, such as updating profiles, requesting time off, managing schedules, etc.
-#### Documentation and Help
+  ### Documentation and Help
 - **About Page**: Detailed information about the application and its functionalities.
 - **Documentation Page**: Includes project documentation, contributor details, and instructional videos.
 - **Support**: For any issues or queries, refer to the project's GitHub page or contact the contributors.
